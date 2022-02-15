@@ -17,10 +17,17 @@ func main() {
 	}
 
 	// For forever
-	counterForever := 0
-	for {
-		fmt.Println(counterForever)
-		counterForever++
+	// counterForever := 0
+	// for {
+	// 	fmt.Println(counterForever)
+	// 	counterForever++
+	// }
+
+	// Reverse for
+	reverseCount := 10
+	for reverseCount >= 0 {
+		fmt.Println(reverseCount)
+		reverseCount--
 	}
 
 }
