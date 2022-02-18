@@ -5,6 +5,8 @@ import "fmt"
 type car struct {
 	brand string
 	year  int
+	model string
+	color string
 }
 
 func main() {
@@ -15,6 +17,15 @@ func main() {
 	var otherCar car
 	otherCar.brand = "Ferrari"
 	fmt.Println(otherCar)
+
+	// Ejercicio
+	var newCar car
+	newCar.brand = "Volks Wagen"
+	newCar.color = "Gray"
+	newCar.model = "Vento"
+	newCar.year = 2015
+
+	fmt.Println("New Car:", newCar)
 
 }
 
