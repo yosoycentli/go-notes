@@ -1,21 +1,52 @@
 package main
 
-import (
-	pk "curso_golang_platzi/mypackage"
-	"fmt"
-)
+import "fmt"
+
+type pc struct {
+	ram   int
+	disk  int
+	brand string
+}
+
+func (myPC pc) ping() {
+	fmt.Println(myPC.brand, "Pong")
+}
+
+//  El asterisco antes del tipo pc indica que se va a acceder a la dirección
+//   en memoria donde están los valores de pc y ahí se modificará
+func (myPC *pc) duplicateRAM() {
+	myPC.ram = myPC.ram * 2
+
+}
 
 func main() {
-	var myCar pk.CarPublic
-	myCar.Brand = "Ferrari"
-	myCar.Year = 2020
-	fmt.Println(myCar)
 
-	// No se puede acceder a esta clase porque es de acceso privado
-	// var myOtherCar pk.carPrivate
-	// fmt.Println(carPrivate)
+	a := 50
+	// "&" significa que va a solicitar la dirección en memoria
+	//  de la variable que le siga, en este caso la variable "a"
+	b := &a
 
-	pk.PrintMessage("Hola Platzi")
+	fmt.Println(b)
+	// "*" el asterico significa que va a apuntar o accederá hacia donde
+	//  está guardado en memoria la variable que le siga, en este caso "b"
+	fmt.Println(*b)
+
+	*b = 100
+	fmt.Println(a)
+
+	myPC := pc{ram: 16, disk: 200, brand: "msi"}
+	fmt.Println(myPC)
+
+	myPC.ping()
+
+	fmt.Println(myPC)
+	myPC.duplicateRAM()
+
+	fmt.Println(myPC)
+	myPC.duplicateRAM()
+
+	fmt.Println(myPC)
+
 }
 
 // To ejecute this file you need to compile it in the terminal, we have two options:
