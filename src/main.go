@@ -2,50 +2,41 @@ package main
 
 import "fmt"
 
-type pc struct {
-	ram   int
-	disk  int
-	brand string
+type figuras2D interface {
+	area() float64
 }
 
-func (myPC pc) ping() {
-	fmt.Println(myPC.brand, "Pong")
+type cuadrado struct {
+	base float64
 }
 
-//  El asterisco antes del tipo pc indica que se va a acceder a la dirección
-//   en memoria donde están los valores de pc y ahí se modificará
-func (myPC *pc) duplicateRAM() {
-	myPC.ram = myPC.ram * 2
+type rectangulo struct {
+	base   float64
+	altura float64
+}
 
+func (c cuadrado) area() float64 {
+	return c.base * c.base
+}
+
+func (r rectangulo) area() float64 {
+	return r.base * r.altura
+}
+
+func calcular(f figuras2D) {
+	fmt.Println("Area:", f.area())
 }
 
 func main() {
+	myCuadrado := cuadrado{base: 2}
+	myRectangulo := rectangulo{base: 2, altura: 4}
 
-	a := 50
-	// "&" significa que va a solicitar la dirección en memoria
-	//  de la variable que le siga, en este caso la variable "a"
-	b := &a
+	calcular(myCuadrado)
+	calcular(myRectangulo)
 
-	fmt.Println(b)
-	// "*" el asterico significa que va a apuntar o accederá hacia donde
-	//  está guardado en memoria la variable que le siga, en este caso "b"
-	fmt.Println(*b)
-
-	*b = 100
-	fmt.Println(a)
-
-	myPC := pc{ram: 16, disk: 200, brand: "msi"}
-	fmt.Println(myPC)
-
-	myPC.ping()
-
-	fmt.Println(myPC)
-	myPC.duplicateRAM()
-
-	fmt.Println(myPC)
-	myPC.duplicateRAM()
-
-	fmt.Println(myPC)
+	// Lista interfaces
+	myInterface := []interface{}{"Hola", 12, 4.90}
+	fmt.Println(myInterface...)
 
 }
 
