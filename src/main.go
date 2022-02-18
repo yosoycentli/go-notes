@@ -1,39 +1,32 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
+
+func isPalindrome(text string) {
+	var textReverse string
+
+	text = strings.ToLower(text)
+
+	for i := len(text) - 1; i >= 0; i-- {
+		textReverse += string(text[i])
+	}
+
+	if text == textReverse {
+		fmt.Println("Es palindromo")
+	} else {
+		fmt.Println("No es un palindromo")
+	}
+}
 
 func main() {
+	slice := []string{"hola", "que", "hace"}
 
-	// For condicinal
-	for i := 0; i < 10; i++ {
+	for i := range slice {
 		fmt.Println(i)
 	}
 
-	// For while
-	counter := 0
-	for counter < 10 {
-		fmt.Println(counter)
-		counter++
-	}
-
-	// For forever
-	// counterForever := 0
-	// for {
-	// 	fmt.Println(counterForever)
-	// 	counterForever++
-	// }
-
-	// Reverse for
-	reverseCount := 10
-	for reverseCount >= 0 {
-		fmt.Println(reverseCount)
-		reverseCount--
-	}
-
+	isPalindrome("Amor a Roma")
 }
-
-// To ejecute this file you need to compile it in the terminal, we have two options:
-//  1. the fast: go run src/main.go
-//  2. the "hard" but with better performance:
-// 	2.1 go build src/main.go
-// 	2.2 ./main
