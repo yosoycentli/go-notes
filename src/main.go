@@ -23,7 +23,7 @@ func main() {
 	// 	counterForever++
 	// }
 
-	// Reverse for
+	// For reverse
 	reverseCount := 10
 	for reverseCount >= 0 {
 		fmt.Println(reverseCount)
