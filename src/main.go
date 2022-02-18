@@ -3,33 +3,26 @@ package main
 import "fmt"
 
 func main() {
+	// Defer
+	defer fmt.Println("Hola")
+	fmt.Println("Mundo")
 
-	// For condicinal
+	// Continue y break
 	for i := 0; i < 10; i++ {
 		fmt.Println(i)
+
+		// Continue
+		if i == 2 {
+			fmt.Println("Es 2")
+			continue
+		}
+
+		// Break
+		if i == 8 {
+			fmt.Println("Break")
+			break
+		}
 	}
-
-	// For while
-	counter := 0
-	for counter < 10 {
-		fmt.Println(counter)
-		counter++
-	}
-
-	// For forever
-	// counterForever := 0
-	// for {
-	// 	fmt.Println(counterForever)
-	// 	counterForever++
-	// }
-
-	// Reverse for
-	reverseCount := 10
-	for reverseCount >= 0 {
-		fmt.Println(reverseCount)
-		reverseCount--
-	}
-
 }
 
 // To ejecute this file you need to compile it in the terminal, we have two options:
