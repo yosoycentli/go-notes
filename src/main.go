@@ -4,32 +4,23 @@ import "fmt"
 
 func main() {
 
-	// For condicinal
-	for i := 0; i < 10; i++ {
-		fmt.Println(i)
+	switch modulo := 4 % 2; modulo {
+	case 0:
+		fmt.Println("Es par")
+	default:
+		fmt.Println("Es impar")
 	}
 
-	// For while
-	counter := 0
-	for counter < 10 {
-		fmt.Println(counter)
-		counter++
+	// Sin condicion
+	value := 50
+	switch {
+	case value > 100:
+		fmt.Println("Es mayor a 100")
+	case value < 0:
+		fmt.Println("Es menor a 0")
+	default:
+		fmt.Println("No condicion")
 	}
-
-	// For forever
-	// counterForever := 0
-	// for {
-	// 	fmt.Println(counterForever)
-	// 	counterForever++
-	// }
-
-	// Reverse for
-	reverseCount := 10
-	for reverseCount >= 0 {
-		fmt.Println(reverseCount)
-		reverseCount--
-	}
-
 }
 
 // To ejecute this file you need to compile it in the terminal, we have two options:
