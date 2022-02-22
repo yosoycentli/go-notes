@@ -15,7 +15,7 @@ func fibonacci(c, quit chan int) {
 	}
 }
 
-func main() {
+func otherMain() {
 	c := make(chan int)
 	quit := make(chan int)
 
